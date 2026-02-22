@@ -15,40 +15,120 @@
 
 .listItem {
   margin: 0;
+  animation: fadeInUp 0.4s ease-out backwards;
+}
+
+/* Staggered animation for track items */
+.listItem:nth-child(n+1):nth-child(-n+10) {
+  animation-delay: calc(0.03s * (var(--item-index, 1)));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .trackButton {
   width: 100%;
-  background: transparent;
-  border: none;
+  background: rgba(26, 26, 26, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   padding: var(--space-md) var(--space-lg);
   display: flex;
   align-items: center;
   gap: var(--space-lg);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
-  border-radius: 4px;
+  border-radius: 12px;
   color: var(--color-text-primary);
-  min-height: 44px;
+  min-height: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover glow effect */
+.trackButton::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.trackButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 255, 136, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .trackButton:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 255, 136, 0.05);
+  border-color: rgba(0, 255, 136, 0.2);
+  transform: translateX(8px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.trackButton:hover::before {
+  opacity: 1;
+}
+
+.trackButton:hover::after {
+  opacity: 1;
 }
 
 .trackButton:focus {
   outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
 .trackButton.active {
-  background: rgba(0, 255, 136, 0.1);
-  color: var(--color-accent);
+  background: rgba(0, 255, 136, 0.15);
+  border-color: rgba(0, 255, 136, 0.4);
+  box-shadow: 
+    0 4px 16px rgba(0, 255, 136, 0.2),
+    inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.trackButton.active::before {
+  opacity: 1;
+  width: 4px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-accent);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px var(--color-accent);
+  }
 }
 
 .trackButton.active:hover {
-  background: rgba(0, 255, 136, 0.15);
+  background: rgba(0, 255, 136, 0.2);
 }
 
 .trackNumber {
@@ -58,10 +138,19 @@
   font-weight: 600;
   min-width: 3ch;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.trackButton:hover .trackNumber {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
 .trackButton.active .trackNumber {
   color: var(--color-accent);
+  font-weight: 700;
 }
 
 .trackTitle {
@@ -70,6 +159,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.trackButton:hover .trackTitle {
+  color: var(--color-text-primary);
+}
+
+.trackButton.active .trackTitle {
+  color: var(--color-accent);
+  font-weight: 500;
 }
 
 .playingIndicator {
@@ -78,15 +179,51 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  animation: pulse 1.5s ease-in-out infinite;
+  animation: playingPulse 1.5s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes pulse {
+@keyframes playingPulse {
   0%, 100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* Equalizer bars animation */
+.playingIndicator::before,
+.playingIndicator::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: var(--color-accent);
+  animation: equalizer 0.8s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+.playingIndicator::before {
+  height: 12px;
+  left: -6px;
+  animation-delay: 0.2s;
+}
+
+.playingIndicator::after {
+  height: 16px;
+  right: -6px;
+  animation-delay: 0.4s;
+}
+
+@keyframes equalizer {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
   }
 }
 
@@ -95,6 +232,7 @@
   .trackButton {
     padding: var(--space-sm) var(--space-md);
     gap: var(--space-md);
+    min-height: 48px;
   }
 
   .trackNumber {
@@ -109,6 +247,6 @@
 /* Tablet and desktop - maintain consistent styling */
 @media (min-width: 768px) {
   .trackButton:hover .trackNumber {
-    color: var(--color-accent);
+    transform: scale(1.1);
   }
 }

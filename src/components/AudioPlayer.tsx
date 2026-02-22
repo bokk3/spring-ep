@@ -78,6 +78,10 @@ export function AudioPlayer({
     }
   };
 
+  // Calculate progress percentage for the visual progress bar
+  // The progress bar needs to account for the padding in the wrapper (10px on each side)
+  const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
+
   return (
     <div className={styles.audioPlayer}>
       {error && <div className={styles.error}>{error}</div>}
@@ -153,15 +157,22 @@ export function AudioPlayer({
 
       <div className={styles.seekBar}>
         <span className={styles.time}>{formatTime(currentTime)}</span>
-        <input
-          type="range"
-          min="0"
-          max={duration || 0}
-          value={currentTime}
-          onChange={handleSeekBarChange}
-          className={styles.slider}
-          aria-label="Seek"
-        />
+        <div className={styles.sliderWrapper}>
+          <div className={styles.sliderTrack} />
+          <div 
+            className={styles.sliderProgress} 
+            style={{ width: `${progressPercentage}%` }}
+          />
+          <input
+            type="range"
+            min="0"
+            max={duration || 0}
+            value={currentTime}
+            onChange={handleSeekBarChange}
+            className={styles.slider}
+            aria-label="Seek"
+          />
+        </div>
         <span className={styles.time}>{formatTime(duration)}</span>
       </div>
 

@@ -136,8 +136,12 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   };
 
   return (
-    <form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
-      <div className={styles.formGroup}>
+    <form 
+      className={`${styles.contactForm} ${isSubmitting ? styles.loading : ''} ${submitSuccess ? styles.success : ''} ${submitError ? styles.error : ''}`} 
+      onSubmit={handleSubmit} 
+      noValidate
+    >
+      <div className={`${styles.formGroup} ${formData.name ? styles.hasValue : ''}`}>
         <label htmlFor="name" className={styles.label}>
           Name
         </label>
@@ -159,7 +163,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         )}
       </div>
 
-      <div className={styles.formGroup}>
+      <div className={`${styles.formGroup} ${formData.email ? styles.hasValue : ''}`}>
         <label htmlFor="email" className={styles.label}>
           Email
         </label>
@@ -181,7 +185,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         )}
       </div>
 
-      <div className={styles.formGroup}>
+      <div className={`${styles.formGroup} ${formData.message ? styles.hasValue : ''}`}>
         <label htmlFor="message" className={styles.label}>
           Message
         </label>
