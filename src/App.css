@@ -10,6 +10,40 @@
   padding: var(--space-3xl) 0;
   text-align: center;
   border-bottom: 1px solid var(--color-surface);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, var(--color-background) 100%);
+}
+
+.app-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .artist-name {
@@ -55,15 +89,79 @@ p {
   line-height: var(--line-height-relaxed);
 }
 
+/* Contact section */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 600px;
+}
+
+.contact-intro p {
+  font-size: var(--text-lg);
+  margin: var(--space-lg) 0 0 0;
+}
+
+.artist-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 3px solid var(--color-accent);
+}
+
 /* Music section layout - add spacing between track list and audio player */
 #music > div > * + * {
   margin-top: var(--space-2xl);
+}
+
+.music-content {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.album-showcase {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  border-radius: 12px;
+}
+
+.album-cover-large {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.album-info h3 {
+  font-size: var(--text-2xl);
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--color-text-primary);
+}
+
+.album-info p {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-family: var(--font-mono);
 }
 
 /* Responsive adjustments */
 @media (max-width: 767px) {
   .app-header {
     padding: var(--space-2xl) 0;
+    min-height: 300px;
   }
 
   .artist-name {
@@ -73,10 +171,31 @@ p {
   .artist-tagline {
     font-size: var(--text-base);
   }
+  
+  .album-showcase {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
+  }
+  
+  .album-cover-large {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .artist-image {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .app-header {
     padding: var(--space-3xl) 0;
+  }
+  
+  .album-cover-large {
+    width: 180px;
+    height: 180px;
   }
 }

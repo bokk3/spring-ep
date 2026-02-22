@@ -1,6 +1,7 @@
 import { Navigation, Container, Section, AudioPlayer, TrackList, ContactForm, BlogSection } from './components';
 import { mockTracks, mockBlogPosts } from './data';
 import { useAudioPlayer } from './hooks';
+import { images } from './config/images';
 import type { ContactMessage } from './types';
 import './App.css';
 
@@ -29,6 +30,7 @@ function App() {
       <Navigation />
       
       <header className="app-header">
+        <div className="hero-background" style={{ backgroundImage: `url(${images.hero})` }} />
         <Container>
           <h1 className="artist-name">Extrablyn</h1>
           <p className="artist-tagline">Techno Artist & Producer</p>
@@ -39,11 +41,25 @@ function App() {
         <Section id="music">
           <Container>
             <h2>Music</h2>
-            <TrackList
-              tracks={mockTracks}
-              currentTrackId={currentTrack?.id || null}
-              onTrackSelect={audioPlayerState.loadTrack}
-            />
+            <div className="music-content">
+              <div className="album-showcase">
+                <img 
+                  src={images.albumCover} 
+                  alt="Spring EP Album Cover" 
+                  className="album-cover-large"
+                  loading="lazy"
+                />
+                <div className="album-info">
+                  <h3>Spring EP</h3>
+                  <p>29 Tracks • 2024</p>
+                </div>
+              </div>
+              <TrackList
+                tracks={mockTracks}
+                currentTrackId={currentTrack?.id || null}
+                onTrackSelect={audioPlayerState.loadTrack}
+              />
+            </div>
           </Container>
         </Section>
         
@@ -57,10 +73,20 @@ function App() {
         <Section id="contact">
           <Container>
             <h2>Contact</h2>
-            <p style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--color-text-secondary)' }}>
-              Get in touch for bookings, collaborations, or just to say hello.
-            </p>
-            <ContactForm onSubmit={handleContactSubmit} />
+            <div className="contact-content">
+              <div className="contact-intro">
+                <img 
+                  src={images.artist} 
+                  alt="Extrablyn" 
+                  className="artist-image"
+                  loading="lazy"
+                />
+                <p>
+                  Get in touch for bookings, collaborations, or just to say hello.
+                </p>
+              </div>
+              <ContactForm onSubmit={handleContactSubmit} />
+            </div>
           </Container>
         </Section>
       </main>
