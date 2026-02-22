@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #f5f5f5;
+            font-family: sans-serif;
+            padding: 2rem;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #333;
+        }
+        img {
+            max-width: 300px;
+            display: block;
+            margin: 1rem 0;
+        }
+        .error {
+            color: #ff4444;
+        }
+        .success {
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Hero Image</h2>
+        <p>Path: /images/hero.jpg</p>
+        <img src="/images/hero.jpg" alt="Hero" id="hero">
+        <p id="hero-status">Loading...</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Album Cover</h2>
+        <p>Path: /images/album-cover.jpg</p>
+        <img src="/images/album-cover.jpg" alt="Album Cover" id="album">
+        <p id="album-status">Loading...</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Artist Photo</h2>
+        <p>Path: /images/artist.jpg</p>
+        <img src="/images/artist.jpg" alt="Artist" id="artist">
+        <p id="artist-status">Loading...</p>
+    </div>
+
+    <script>
+        function testImage(id, name) {
+            const img = document.getElementById(id);
+            const status = document.getElementById(id + '-status');
+            
+            img.onload = () => {
+                status.textContent = `✓ ${name} loaded successfully`;
+                status.className = 'success';
+            };
+            
+            img.onerror = () => {
+                status.textContent = `✗ ${name} failed to load`;
+                status.className = 'error';
+            };
+        }
+        
+        testImage('hero', 'Hero image');
+        testImage('album', 'Album cover');
+        testImage('artist', 'Artist photo');
+    </script>
+</body>
+</html>

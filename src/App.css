@@ -5,30 +5,52 @@
   flex-direction: column;
 }
 
-/* Header section */
+/* Header section - Modern glassmorphism hero */
 .app-header {
-  padding: var(--space-3xl) 0;
-  text-align: center;
-  border-bottom: 1px solid var(--color-surface);
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 .hero-background {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.3;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
   z-index: 0;
+  overflow: hidden;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-out;
+}
+
+.app-header:hover .hero-background {
+  transform: scale(1.15);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0.4;
+  filter: blur(0px);
+  transition: all 0.6s ease-out;
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 .hero-background::after {
@@ -38,12 +60,38 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent 0%, var(--color-background) 100%);
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+  z-index: 1;
 }
 
 .app-header > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.app-header .container {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(26, 26, 26, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: var(--space-3xl) var(--space-2xl);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(0, 255, 136, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 1s ease-out;
+  max-width: 800px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .artist-name {
@@ -51,12 +99,66 @@
   font-weight: 700;
   margin-bottom: var(--space-md);
   color: var(--color-text-primary);
+  text-align: center;
+  letter-spacing: -0.02em;
+  text-shadow: 
+    0 0 40px rgba(0, 255, 136, 0.5),
+    0 0 80px rgba(0, 255, 136, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+      0 0 20px rgba(0, 255, 136, 0.4),
+      0 0 40px rgba(0, 255, 136, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  to {
+    text-shadow: 
+      0 0 40px rgba(0, 255, 136, 0.6),
+      0 0 80px rgba(0, 255, 136, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.8);
+  }
 }
 
 .artist-tagline {
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
   margin-bottom: 0;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-3xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 
 /* Main content */
@@ -160,8 +262,13 @@ p {
 /* Responsive adjustments */
 @media (max-width: 767px) {
   .app-header {
+    min-height: 100vh;
     padding: var(--space-2xl) 0;
-    min-height: 300px;
+  }
+  
+  .app-header .container {
+    padding: var(--space-2xl) var(--space-lg);
+    border-radius: 16px;
   }
 
   .artist-name {
@@ -191,7 +298,7 @@ p {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .app-header {
-    padding: var(--space-3xl) 0;
+    min-height: 80vh;
   }
   
   .album-cover-large {
