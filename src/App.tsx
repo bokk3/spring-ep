@@ -44,24 +44,6 @@ function App() {
               currentTrackId={currentTrack?.id || null}
               onTrackSelect={audioPlayerState.loadTrack}
             />
-            <AudioPlayer
-              tracks={mockTracks}
-              currentTrackIndex={audioPlayerState.currentTrackIndex}
-              isPlaying={audioPlayerState.isPlaying}
-              currentTime={audioPlayerState.currentTime}
-              duration={audioPlayerState.duration}
-              volume={audioPlayerState.volume}
-              isMuted={audioPlayerState.isMuted}
-              isLoading={audioPlayerState.isLoading}
-              error={audioPlayerState.error}
-              onPlay={audioPlayerState.play}
-              onPause={audioPlayerState.pause}
-              onSeek={audioPlayerState.seekTo}
-              onNext={audioPlayerState.nextTrack}
-              onPrevious={audioPlayerState.previousTrack}
-              onVolumeChange={audioPlayerState.setVolume}
-              onToggleMute={audioPlayerState.toggleMute}
-            />
           </Container>
         </Section>
         
@@ -88,6 +70,26 @@ function App() {
           <p>&copy; {new Date().getFullYear()} Extrablyn. All rights reserved.</p>
         </Container>
       </footer>
+
+      {/* Floating Audio Player */}
+      <AudioPlayer
+        tracks={mockTracks}
+        currentTrackIndex={audioPlayerState.currentTrackIndex}
+        isPlaying={audioPlayerState.isPlaying}
+        currentTime={audioPlayerState.currentTime}
+        duration={audioPlayerState.duration}
+        volume={audioPlayerState.volume}
+        isMuted={audioPlayerState.isMuted}
+        isLoading={audioPlayerState.isLoading}
+        error={audioPlayerState.error}
+        onPlay={audioPlayerState.play}
+        onPause={audioPlayerState.pause}
+        onSeek={audioPlayerState.seekTo}
+        onNext={audioPlayerState.nextTrack}
+        onPrevious={audioPlayerState.previousTrack}
+        onVolumeChange={audioPlayerState.setVolume}
+        onToggleMute={audioPlayerState.toggleMute}
+      />
     </div>
   );
 }

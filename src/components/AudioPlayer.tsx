@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import type { Track } from '../types';
+import { getAlbumArt } from '../utils/albumArtExtractor';
 import styles from './AudioPlayer.module.css';
 
 interface AudioPlayerProps {
@@ -39,6 +41,17 @@ export function AudioPlayer({
   onToggleMute,
 }: AudioPlayerProps) {
   const currentTrack = tracks[currentTrackIndex];
+  const [albumArt, setAlbumArt] = useState<string | null>(null);
+
+  // Extract album art when track changes
+  useEffect(() => {
+    if (currentTrack?.albumArt) {
+      setAlbumArt(currentTrack.albumArt);
+    } else if (currentTrack?.audioUrl) {
+      setAlbumArt(null);
+      getAlbumArt(currentTrack.audioUrl).then(setAlbumArt);
+    }
+  }, [currentTrack?.audioUrl, currentTrack?.albumArt]);
 
   const formatTime = (seconds: number): string => {
     if (!isFinite(seconds)) return '0:00';
@@ -69,12 +82,28 @@ export function AudioPlayer({
     <div className={styles.audioPlayer}>
       {error && <div className={styles.error}>{error}</div>}
       
-      <div className={styles.trackInfo}>
-        <div className={styles.trackNumber}>
-          {currentTrack?.trackNumber || 0}
-        </div>
-        <div className={styles.trackTitle}>
-          {isLoading ? 'Loading...' : currentTrack?.title || 'No track'}
+      <div className={styles.playerHeader}>
+        {albumArt ? (
+          <div className={styles.albumArt}>
+            <img src={albumArt} alt={`${currentTrack?.title} album art`} />
+          </div>
+        ) : (
+          <div className={styles.albumArt}>
+            <div className={styles.albumArtPlaceholder}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+        )}
+        <div className={styles.trackInfo}>
+          <div className={styles.trackNumber}>
+            {currentTrack?.trackNumber || 0}
+          </div>
+          <div className={styles.trackTitle}>
+            {isLoading ? 'Loading...' : currentTrack?.title || 'No track'}
+          </div>
         </div>
       </div>
 

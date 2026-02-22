@@ -11,6 +11,7 @@ export interface Track {
   trackNumber: number;     // Position in album (1-30)
   audioUrl: string;        // URL to audio file
   duration: number;        // Duration in seconds
+  albumArt?: string;       // Optional album art URL (extracted from metadata or provided)
 }
 
 /**
