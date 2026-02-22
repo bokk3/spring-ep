@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BlogPost } from './BlogPost';
-import { BlogPost as BlogPostType } from '../types';
+import type { BlogPost as BlogPostType } from '../types';
 
 describe('BlogPost', () => {
   const mockPost: BlogPostType = {

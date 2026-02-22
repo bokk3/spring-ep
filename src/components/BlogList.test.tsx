@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BlogList } from './BlogList';
-import { BlogPost } from '../types';
+import type { BlogPost } from '../types';
 
 describe('BlogList', () => {
   const mockPosts: BlogPost[] = [

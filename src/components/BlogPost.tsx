@@ -1,4 +1,4 @@
-import { BlogPost as BlogPostType } from '../types';
+import type { BlogPost as BlogPostType } from '../types';
 import styles from './BlogPost.module.css';
 
 interface BlogPostProps {

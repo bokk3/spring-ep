@@ -28,7 +28,6 @@ describe('Navigation Component', () => {
     render(<Navigation />);
     
     const hamburger = screen.getByLabelText('Toggle navigation menu');
-    const navList = screen.getByRole('list');
     
     expect(hamburger).toHaveAttribute('aria-expanded', 'false');
     
