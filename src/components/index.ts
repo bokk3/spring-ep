@@ -7,3 +7,4 @@ export { BlogSection } from './BlogSection';
 export { AudioPlayer } from './AudioPlayer';
 export { TrackList } from './TrackList';
 export { ContactForm } from './ContactForm';
+export { ParallaxHero } from './ParallaxHero';

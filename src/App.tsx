@@ -1,4 +1,4 @@
-import { Navigation, Container, Section, AudioPlayer, TrackList, ContactForm, BlogSection } from './components';
+import { Navigation, Container, Section, AudioPlayer, TrackList, ContactForm, BlogSection, ParallaxHero } from './components';
 import { mockTracks, mockBlogPosts } from './data';
 import { useAudioPlayer } from './hooks';
 import type { ContactMessage } from './types';
@@ -38,25 +38,7 @@ function App() {
     <div className="app">
       <Navigation />
       
-      <header className="app-header">
-        <div className="hero-background">
-          <img 
-            src={heroImage} 
-            alt="Hero background" 
-            className="hero-image"
-            onError={(e) => {
-              console.error('Failed to load hero image:', heroImage);
-            }}
-          />
-        </div>
-        <Container>
-          <h1 className="artist-name">Extrablyn</h1>
-          <p className="artist-tagline">Techno Artist & Producer</p>
-        </Container>
-        <div className="scroll-indicator">
-          <div className="scroll-arrow"></div>
-        </div>
-      </header>
+      <ParallaxHero heroImage={heroImage} />
 
       <main>
         <Section id="music">

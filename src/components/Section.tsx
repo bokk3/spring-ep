@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useInView } from '../hooks';
 import styles from './Section.module.css';
 
 interface SectionProps {
@@ -8,8 +9,14 @@ interface SectionProps {
 }
 
 export const Section = ({ children, id, className = '' }: SectionProps) => {
+  const { ref, isInView } = useInView();
+
   return (
-    <section id={id} className={`${styles.section} ${className}`}>
+    <section 
+      id={id} 
+      className={`${styles.section} ${isInView ? styles.visible : ''} ${className}`}
+      ref={ref as React.RefObject<HTMLElement>}
+    >
       {children}
     </section>
   );
