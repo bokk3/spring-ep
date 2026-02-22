@@ -1,0 +1,19 @@
+.section {
+  padding: var(--section-spacing) 0;
+}
+
+/* First section has less top padding */
+.section:first-of-type {
+  padding-top: var(--space-xl);
+}
+
+/* Responsive section spacing */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .section:first-of-type {
+    padding-top: var(--space-lg);
+  }
+}

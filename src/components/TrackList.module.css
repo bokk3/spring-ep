@@ -1,0 +1,114 @@
+.trackList {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.listItem {
+  margin: 0;
+}
+
+.trackButton {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  min-height: 44px;
+}
+
+.trackButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.trackButton:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.trackButton.active {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--color-accent);
+}
+
+.trackButton.active:hover {
+  background: rgba(0, 255, 136, 0.15);
+}
+
+.trackNumber {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  min-width: 3ch;
+  flex-shrink: 0;
+}
+
+.trackButton.active .trackNumber {
+  color: var(--color-accent);
+}
+
+.trackTitle {
+  font-size: var(--text-base);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.playingIndicator {
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .trackButton {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .trackNumber {
+    font-size: var(--text-sm);
+  }
+
+  .trackTitle {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Tablet and desktop - maintain consistent styling */
+@media (min-width: 768px) {
+  .trackButton:hover .trackNumber {
+    color: var(--color-accent);
+  }
+}

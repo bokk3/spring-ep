@@ -1,0 +1,82 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header section */
+.app-header {
+  padding: var(--space-3xl) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-surface);
+}
+
+.artist-name {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.artist-tagline {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* Main content */
+main {
+  flex: 1;
+}
+
+/* Footer */
+.app-footer {
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-3xl);
+  border-top: 1px solid var(--color-surface);
+  text-align: center;
+}
+
+.app-footer p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+/* Section headings */
+h2 {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text-primary);
+}
+
+p {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Music section layout - add spacing between track list and audio player */
+#music > div > * + * {
+  margin-top: var(--space-2xl);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .app-header {
+    padding: var(--space-2xl) 0;
+  }
+
+  .artist-name {
+    font-size: var(--text-2xl);
+  }
+
+  .artist-tagline {
+    font-size: var(--text-base);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-header {
+    padding: var(--space-3xl) 0;
+  }
+}

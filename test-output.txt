@@ -1,0 +1,170 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90m/home/boris/Websites/music[39m
+
+ [31m×[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mcontains exactly 30 tracks[32m 24[2mms[22m[39m
+[31m   → expected [ { id: 'track-001', …(4) }, …(28) ] to have a length of 30 but got 29[39m
+ [31m×[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mhas tracks numbered from 1 to 30[32m 12[2mms[22m[39m
+[31m   → expected [ Array(29) ] to deeply equal [ Array(30) ][39m
+ [31m×[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mhas unique track IDs[32m 8[2mms[22m[39m
+[31m   → expected 29 to be 30 // Object.is equality[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mall tracks have valid durations[32m 4[2mms[22m[39m
+ [31m×[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mall tracks have audio URLs[32m 2[2mms[22m[39m
+[31m   → expected '/Spring EP/01. Extrablyn - Transient.…' to match /^\/audio\/track-\d{3}\.mp3$/audio\[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockBlogPosts[2m > [22mcontains blog posts[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockBlogPosts[2m > [22mall posts have Date objects[32m 1[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockBlogPosts[2m > [22mall posts have unique IDs[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockBlogPosts[2m > [22mall posts have unique slugs[32m 3[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetTrackById[2m > [22mreturns track when ID exists[32m 1[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetTrackById[2m > [22mreturns undefined when ID does not exist[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetTrackByNumber[2m > [22mreturns track when number exists[32m 1[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetTrackByNumber[2m > [22mreturns undefined when number does not exist[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetBlogPostById[2m > [22mreturns post when ID exists[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetBlogPostById[2m > [22mreturns undefined when ID does not exist[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetBlogPostBySlug[2m > [22mreturns post when slug exists[32m 0[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetBlogPostBySlug[2m > [22mreturns undefined when slug does not exist[32m 1[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetBlogPostsSorted[2m > [22mreturns posts in reverse chronological order[32m 1[2mms[22m[39m
+ [32m✓[39m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mgetBlogPostsSorted[2m > [22mdoes not mutate original array[32m 1[2mms[22m[39m
+ [32m✓[39m src/components/Navigation.test.tsx[2m > [22mNavigation Component[2m > [22mrenders navigation with default sections[32m 81[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mdisplays current track metadata[32m 166[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mdisplays playback controls[32m 29[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mdisplays seekbar and time[32m 29[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mdisplays volume controls[32m 23[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mdisables previous button on first track[32m 26[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22menables next button when not on last track[32m 19[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mdisables next button on last track[32m 13[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mshows pause button when playing[32m 11[2mms[22m[39m
+ [32m✓[39m src/components/AudioPlayer.test.tsx[2m > [22mAudioPlayer[2m > [22mshows play button when paused[32m 10[2mms[22m[39m
+ [32m✓[39m src/components/BlogPost.test.tsx[2m > [22mBlogPost[2m > [22mdisplays post title and date[32m 117[2mms[22m[39m
+ [32m✓[39m src/components/BlogPost.test.tsx[2m > [22mBlogPost[2m > [22mrenders HTML content correctly[32m 24[2mms[22m[39m
+ [32m✓[39m src/components/BlogList.test.tsx[2m > [22mBlogList[2m > [22mdisplays all blog posts[32m 134[2mms[22m[39m
+ [32m✓[39m src/components/BlogPost.test.tsx[2m > [22mBlogPost[2m > [22mdisplays back button[33m 541[2mms[22m[39m
+ [32m✓[39m src/components/BlogPost.test.tsx[2m > [22mBlogPost[2m > [22mcalls onBack when back button is clicked[32m 110[2mms[22m[39m
+ [32m✓[39m src/components/Navigation.test.tsx[2m > [22mNavigation Component[2m > [22mrenders navigation with custom sections[32m 20[2mms[22m[39m
+ [32m✓[39m src/components/TrackList.test.tsx[2m > [22mTrackList[2m > [22mdisplays all tracks with numbers and titles[32m 92[2mms[22m[39m
+ [32m✓[39m src/components/BlogList.test.tsx[2m > [22mBlogList[2m > [22mdisplays posts in reverse chronological order[33m 633[2mms[22m[39m
+ [32m✓[39m src/components/BlogList.test.tsx[2m > [22mBlogList[2m > [22mdisplays title, date, and preview for each post[32m 19[2mms[22m[39m
+ [32m✓[39m src/components/BlogList.test.tsx[2m > [22mBlogList[2m > [22mcalls onPostSelect when a post is clicked[32m 30[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mrenders all form fields[33m 694[2mms[22m[39m
+ [32m✓[39m src/components/Navigation.test.tsx[2m > [22mNavigation Component[2m > [22mtoggles mobile menu when hamburger is clicked[33m 708[2mms[22m[39m
+ [32m✓[39m src/components/Navigation.test.tsx[2m > [22mNavigation Component[2m > [22mhandles smooth scroll to section[32m 22[2mms[22m[39m
+ [32m✓[39m src/components/Navigation.test.tsx[2m > [22mNavigation Component[2m > [22mcloses mobile menu after clicking a link[32m 18[2mms[22m[39m
+ [32m✓[39m src/components/Navigation.test.tsx[2m > [22mNavigation Component[2m > [22mhas proper ARIA attributes[32m 46[2mms[22m[39m
+ [32m✓[39m src/components/TrackList.test.tsx[2m > [22mTrackList[2m > [22mcalls onTrackSelect with correct index when track is clicked[33m 746[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mdisplays validation errors for empty fields[32m 179[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mdisplays validation error for invalid email[32m 67[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mdisplays validation error for short name[32m 71[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mdisplays validation error for short message[32m 55[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22msubmits form with valid data[32m 51[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mdisplays error message on submission failure[32m 58[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mclears form after successful submission[32m 40[2mms[22m[39m
+ [32m✓[39m src/components/TrackList.test.tsx[2m > [22mTrackList[2m > [22mvisually indicates the currently playing track[32m 114[2mms[22m[39m
+ [32m✓[39m src/components/TrackList.test.tsx[2m > [22mTrackList[2m > [22mdisplays exactly 30 tracks when provided[33m 385[2mms[22m[39m
+ [32m✓[39m src/components/TrackList.test.tsx[2m > [22mTrackList[2m > [22mrenders track numbers with leading zeros[32m 8[2mms[22m[39m
+ [32m✓[39m src/components/TrackList.test.tsx[2m > [22mTrackList[2m > [22mhandles empty track list gracefully[32m 3[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mdisables form during submission[32m 153[2mms[22m[39m
+ [32m✓[39m src/components/ContactForm.test.tsx[2m > [22mContactForm[2m > [22mclears error when user starts typing[32m 55[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misTrack[2m > [22mvalidates a valid track[32m 2[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misTrack[2m > [22mrejects invalid track with missing fields[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misTrack[2m > [22mrejects track with invalid track number[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misTrack[2m > [22mrejects track with track number > 30[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misBlogPost[2m > [22mvalidates a valid blog post[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misBlogPost[2m > [22mrejects invalid blog post with missing fields[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misBlogPost[2m > [22mrejects blog post with invalid date[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misContactMessage[2m > [22mvalidates a valid contact message[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misContactMessage[2m > [22mrejects message with invalid email[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misContactMessage[2m > [22mrejects message with short name[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misContactMessage[2m > [22mrejects message with short message[32m 0[2mms[22m[39m
+ [32m✓[39m src/types/models.test.ts[2m > [22mType Guards[2m > [22misContactMessage[2m > [22maccepts message with optional userAgent[32m 0[2mms[22m[39m
+ [32m✓[39m src/test/setup.test.ts[2m > [22mTest Setup[2m > [22mshould run basic test[32m 1[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mcontains exactly 30 tracks
+[31m[1mAssertionError[22m: expected [ { id: 'track-001', …(4) }, …(28) ] to have a length of 30 but got 29[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 30[39m
+[31m+ 29[39m
+
+[36m [2m❯[22m src/data/mockData.test.ts:[2m15:26[22m[39m
+    [90m 13| [39m  [34mdescribe[39m([32m'mockTracks'[39m[33m,[39m () [33m=>[39m {
+    [90m 14| [39m    [34mit[39m([32m'contains exactly 30 tracks'[39m[33m,[39m () [33m=>[39m {
+    [90m 15| [39m      [34mexpect[39m(mockTracks)[33m.[39m[34mtoHaveLength[39m([34m30[39m)[33m;[39m
+    [90m   | [39m                         [31m^[39m
+    [90m 16| [39m    })[33m;[39m
+    [90m 17| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mhas tracks numbered from 1 to 30
+[31m[1mAssertionError[22m: expected [ Array(29) ] to deeply equal [ Array(30) ][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[33m@@ -26,7 +26,6 @@[39m
+[2m    25,[22m
+[2m    26,[22m
+[2m    27,[22m
+[2m    28,[22m
+[2m    29,[22m
+[32m-   30,[39m
+[2m  ][22m
+
+[36m [2m❯[22m src/data/mockData.test.ts:[2m20:28[22m[39m
+    [90m 18| [39m    [34mit[39m([32m'has tracks numbered from 1 to 30'[39m[33m,[39m () [33m=>[39m {
+    [90m 19| [39m      const trackNumbers = mockTracks.map(t => t.trackNumber).sort((a,…
+    [90m 20| [39m      expect(trackNumbers).toEqual(Array.from({ length: 30 }, (_, i) =…
+    [90m   | [39m                           [31m^[39m
+    [90m 21| [39m    })[33m;[39m
+    [90m 22| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mhas unique track IDs
+[31m[1mAssertionError[22m: expected 29 to be 30 // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 30[39m
+[31m+ 29[39m
+
+[36m [2m❯[22m src/data/mockData.test.ts:[2m26:30[22m[39m
+    [90m 24| [39m      [35mconst[39m ids [33m=[39m mockTracks[33m.[39m[34mmap[39m(t [33m=>[39m t[33m.[39mid)[33m;[39m
+    [90m 25| [39m      [35mconst[39m uniqueIds [33m=[39m [35mnew[39m [33mSet[39m(ids)[33m;[39m
+    [90m 26| [39m      [34mexpect[39m(uniqueIds[33m.[39msize)[33m.[39m[34mtoBe[39m([34m30[39m)[33m;[39m
+    [90m   | [39m                             [31m^[39m
+    [90m 27| [39m    })[33m;[39m
+    [90m 28| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/data/mockData.test.ts[2m > [22mMock Data[2m > [22mmockTracks[2m > [22mall tracks have audio URLs
+[31m[1mAssertionError[22m: expected '/Spring EP/01. Extrablyn - Transient.…' to match /^\/audio\/track-\d{3}\.mp3$/audio\[39m
+
+[32m- Expected:[39m 
+/^\/audio\/track-\d{3}\.mp3$/
+
+[31m+ Received:[39m 
+"/Spring EP/01. Extrablyn - Transient.m4a"
+
+[36m [2m❯[22m src/data/mockData.test.ts:[2m37:32[22m[39m
+    [90m 35| [39m    [34mit[39m([32m'all tracks have audio URLs'[39m[33m,[39m () [33m=>[39m {
+    [90m 36| [39m      mockTracks[33m.[39m[34mforEach[39m(track [33m=>[39m {
+    [90m 37| [39m        [34mexpect[39m(track[33m.[39maudioUrl)[33m.[39m[34mtoMatch[39m([36m/^\/audio\/track-\d{3}\.mp3$/[39m)[33m;[39m
+    [90m   | [39m                               [31m^[39m
+    [90m 38| [39m      })[33m;[39m
+    [90m 39| [39m    })[33m;[39m
+[90m [2m❯[22m src/data/mockData.test.ts:[2m36:18[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m8 passed[39m[22m[90m (9)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m67 passed[39m[22m[90m (71)[39m
+[2m   Start at [22m 15:44:01
+[2m   Duration [22m 3.98s[2m (transform 1.06s, setup 1.14s, import 2.38s, tests 5.71s, environment 11.76s)[22m
+

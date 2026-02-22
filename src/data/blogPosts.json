@@ -1,0 +1,26 @@
+[
+  {
+    "id": "post-001",
+    "title": "The Making of Opening Sequence",
+    "date": "2024-03-15T10:00:00.000Z",
+    "preview": "A deep dive into the creative process behind the first track of the album. Exploring the synthesis techniques and sound design choices that set the tone for the entire journey.",
+    "content": "<h2>The Beginning</h2><p>Every album needs an opening that draws the listener in. For 'Opening Sequence', I wanted to create something that felt both familiar and alien—a sonic gateway into the world I was building.</p><h2>Sound Design</h2><p>The track starts with a simple sine wave that gradually morphs through various waveforms. I used a custom Max/MSP patch to create evolving harmonic content that shifts every 8 bars.</p><p>The kick drum is layered from three sources: a classic 909, a sine wave sub, and a transient from a field recording of a door slam. This combination gives it both weight and character.</p><h2>Arrangement</h2><p>The structure follows a traditional techno build, but I introduced unexpected breaks at the 2-minute and 4-minute marks to keep the listener engaged. These moments of silence are just as important as the sound itself.</p>",
+    "slug": "making-of-opening-sequence"
+  },
+  {
+    "id": "post-002",
+    "title": "Studio Setup 2024",
+    "date": "2024-02-28T14:30:00.000Z",
+    "preview": "An overview of my current studio configuration, including hardware synths, modular setup, and software workflow. Learn about the tools I use to create my sound.",
+    "content": "<h2>Hardware</h2><p>My setup centers around a Eurorack modular system with about 200HP of modules. Key pieces include the Make Noise Maths, Mutable Instruments Plaits, and Intellijel Metropolix sequencer.</p><p>For traditional synthesis, I rely on the Moog Subsequent 37 for bass and the Elektron Digitone for FM textures. The Elektron Octatrack serves as the brain of the operation, handling sampling and live arrangement.</p><h2>Software</h2><p>I work primarily in Ableton Live 11, using Max for Live extensively for custom devices. My go-to plugins include FabFilter Pro-Q 3 for EQ, Valhalla VintageVerb for space, and Soundtoys Decapitator for saturation.</p><h2>Monitoring</h2><p>I mix on Focal Alpha 80 monitors in a treated room. For reference, I also check mixes on Beyerdynamic DT 770 Pro headphones and a cheap Bluetooth speaker to ensure translation across systems.</p>",
+    "slug": "studio-setup-2024"
+  },
+  {
+    "id": "post-003",
+    "title": "Thoughts on Minimalism in Techno",
+    "date": "2024-01-20T09:15:00.000Z",
+    "preview": "Exploring the philosophy of minimalism in electronic music. How constraints can lead to creativity and why less is often more in techno production.",
+    "content": "<h2>The Power of Constraint</h2><p>Minimalism in techno isn't about using fewer elements—it's about making every element count. When you limit your palette, you're forced to explore the depth of each sound rather than the breadth of many sounds.</p><h2>Repetition and Variation</h2><p>Techno thrives on repetition, but the magic happens in the subtle variations. A filter sweep that takes 32 bars to complete. A hi-hat pattern that shifts by one step every 4 bars. These micro-changes create movement without disrupting the groove.</p><h2>Space and Silence</h2><p>One of the most important lessons I've learned is the value of space. Not every moment needs to be filled with sound. The gaps between elements are where the groove lives. Silence creates tension and makes the drops hit harder.</p><h2>Influence</h2><p>Artists like Robert Hood, Plastikman, and Basic Channel have shown that you can create entire worlds with just a few elements. Their work continues to inspire my approach to production.</p>",
+    "slug": "minimalism-in-techno"
+  }
+]
