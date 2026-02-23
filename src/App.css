@@ -1,8 +1,9 @@
 .app {
   min-height: 100vh;
-  background-color: var(--color-background);
+  background-color: transparent;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* Header section - Modern glassmorphism hero */

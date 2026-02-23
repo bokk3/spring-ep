@@ -9,6 +9,9 @@ export class AudioManager {
   private tracks: Track[];
   private currentIndex: number;
   private onStateChange?: () => void;
+  private audioContext?: AudioContext;
+  private analyser?: AnalyserNode;
+  private source?: MediaElementAudioSourceNode;
 
   constructor(tracks: Track[], onStateChange?: () => void) {
     this.audio = new Audio();
@@ -16,6 +19,39 @@ export class AudioManager {
     this.currentIndex = 0;
     this.onStateChange = onStateChange;
     this.setupEventListeners();
+    this.setupAudioContext();
+  }
+
+  /**
+   * Set up Web Audio API context for visualization
+   */
+  private setupAudioContext(): void {
+    try {
+      this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      this.analyser = this.audioContext.createAnalyser();
+      this.analyser.fftSize = 256; // Frequency resolution
+      this.analyser.smoothingTimeConstant = 0.8;
+      
+      this.source = this.audioContext.createMediaElementSource(this.audio);
+      this.source.connect(this.analyser);
+      this.analyser.connect(this.audioContext.destination);
+    } catch (error) {
+      console.warn('Web Audio API not supported:', error);
+    }
+  }
+
+  /**
+   * Get analyser node for visualization
+   */
+  getAnalyser(): AnalyserNode | undefined {
+    return this.analyser;
+  }
+
+  /**
+   * Get audio context
+   */
+  getAudioContext(): AudioContext | undefined {
+    return this.audioContext;
   }
 
   /**
@@ -249,5 +285,10 @@ export class AudioManager {
     this.audio.removeEventListener('loadstart', this.handleLoadStart);
     this.audio.pause();
     this.audio.src = '';
+    
+    // Clean up audio context
+    if (this.audioContext) {
+      this.audioContext.close();
+    }
   }
 }

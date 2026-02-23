@@ -1,4 +1,4 @@
-import { Navigation, Container, Section, AudioPlayer, TrackList, ContactForm, BlogSection, ParallaxHero } from './components';
+import { Navigation, Container, Section, AudioPlayer, TrackList, ContactForm, BlogSection, ParallaxHero, RainbowCursor, ScrollProgress, BackgroundAmbience, AudioVisualizer } from './components';
 import { mockTracks, mockBlogPosts } from './data';
 import { useAudioPlayer } from './hooks';
 import type { ContactMessage } from './types';
@@ -36,6 +36,15 @@ function App() {
 
   return (
     <div className="app">
+      {/* VFX Components */}
+      <AudioVisualizer 
+        isPlaying={audioPlayerState.isPlaying} 
+        audioElementRef={audioPlayerState.audioElement}
+      />
+      <BackgroundAmbience />
+      <RainbowCursor />
+      <ScrollProgress />
+      
       <Navigation />
       
       <ParallaxHero heroImage={heroImage} />

@@ -1,0 +1,78 @@
+.scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.scrollProgress.visible {
+  opacity: 1;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg,
+    #ff0080 0%,
+    #ff0000 10%,
+    #ff8000 20%,
+    #ffff00 30%,
+    #80ff00 40%,
+    #00ff00 50%,
+    #00ff80 60%,
+    #00ffff 70%,
+    #0080ff 80%,
+    #0000ff 90%,
+    #8000ff 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowShift 3s linear infinite;
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.6),
+    0 0 40px rgba(0, 255, 255, 0.4);
+  transition: width 0.1s ease;
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 0, 255, 0.8) 0%,
+    rgba(0, 255, 255, 0.6) 30%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+  animation: glowPulse 2s ease-in-out infinite;
+  transition: left 0.1s ease;
+}
+
+@keyframes rainbowShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 1;
+  }
+}

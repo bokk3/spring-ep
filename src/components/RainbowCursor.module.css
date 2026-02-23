@@ -1,0 +1,61 @@
+.cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.cursorGlow {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(255, 0, 255, 0.8) 0%,
+    rgba(0, 255, 255, 0.6) 25%,
+    rgba(255, 255, 0, 0.4) 50%,
+    transparent 70%
+  );
+  animation: rainbowPulse 2s ease-in-out infinite, rotate 4s linear infinite;
+  filter: blur(8px);
+}
+
+.trailPoint {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 0, 255, 0.6) 0%,
+    rgba(0, 255, 255, 0.4) 50%,
+    transparent 70%
+  );
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes rainbowPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: blur(8px) hue-rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2);
+    filter: blur(12px) hue-rotate(180deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

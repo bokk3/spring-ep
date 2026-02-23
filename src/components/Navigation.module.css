@@ -17,11 +17,34 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(0, 255, 136, 0.3) 50%, 
-    transparent 100%);
+  height: 2px;
+  background: linear-gradient(90deg,
+    var(--neon-pink) 0%,
+    var(--neon-red) 10%,
+    var(--neon-orange) 20%,
+    var(--neon-yellow) 30%,
+    var(--neon-lime) 40%,
+    var(--neon-green) 50%,
+    var(--neon-cyan) 60%,
+    var(--neon-blue) 70%,
+    var(--neon-purple) 80%,
+    var(--neon-magenta) 90%,
+    var(--neon-pink) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowFlow 8s linear infinite;
+  box-shadow: 
+    0 0 10px rgba(255, 0, 255, 0.5),
+    0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
 }
 
 .navContainer {

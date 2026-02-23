@@ -8,3 +8,7 @@ export { AudioPlayer } from './AudioPlayer';
 export { TrackList } from './TrackList';
 export { ContactForm } from './ContactForm';
 export { ParallaxHero } from './ParallaxHero';
+export { RainbowCursor } from './RainbowCursor';
+export { ScrollProgress } from './ScrollProgress';
+export { BackgroundAmbience } from './BackgroundAmbience';
+export { AudioVisualizer } from './AudioVisualizer';

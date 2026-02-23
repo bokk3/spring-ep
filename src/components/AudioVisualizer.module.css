@@ -1,0 +1,18 @@
+.visualizer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: #0a0a0a;
+  pointer-events: none;
+  display: block;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .visualizer {
+    display: none;
+  }
+}

@@ -10,6 +10,7 @@ interface UseAudioPlayerReturn {
   isMuted: boolean;
   isLoading: boolean;
   error: string | null;
+  audioElement: HTMLAudioElement | null;
   play: () => void;
   pause: () => void;
   seekTo: (time: number) => void;
@@ -177,6 +178,7 @@ export function useAudioPlayer(tracks: Track[]): UseAudioPlayerReturn {
     isMuted,
     isLoading,
     error,
+    audioElement: audioRef.current,
     play,
     pause,
     seekTo,
