@@ -27,7 +27,7 @@ export const images = {
 /**
  * Check if an image exists (for graceful fallbacks)
  */
-export function hasImage(imagePath: string): boolean {
+export function hasImage(_imagePath: string): boolean {
   // In production, images will be bundled
   // This is mainly for development
   return true; // Assume images exist, browser will handle 404s gracefully
